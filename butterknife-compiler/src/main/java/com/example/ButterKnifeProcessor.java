@@ -1,10 +1,13 @@
 package com.example;
 
+import com.google.auto.service.AutoService;
+
 import java.lang.annotation.Annotation;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 import javax.annotation.processing.AbstractProcessor;
+import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.TypeElement;
@@ -13,7 +16,7 @@ import javax.lang.model.element.TypeElement;
  * Created by renzhenming on 2018/4/24.
  * AbstractProcessor这个类是Java中的，只能在ava Library中使用
  */
-
+@AutoService(Processor.class)
 public class ButterKnifeProcessor extends AbstractProcessor {
 
     //指定处理的版本
@@ -41,6 +44,11 @@ public class ButterKnifeProcessor extends AbstractProcessor {
 
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
+        System.out.println("------------------------");
+        System.out.println("------------------------");
+        System.out.println("------------------------");
+        System.out.println("------------------------");
+        System.out.println("------------------------");
         return false;
     }
 }

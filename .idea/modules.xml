@@ -3,8 +3,13 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyButterknife.iml" filepath="$PROJECT_DIR$/MyButterknife.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MyButterknife.iml" filepath="$PROJECT_DIR$/MyButterknife.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/butterknife/butterknife.iml" filepath="$PROJECT_DIR$/butterknife/butterknife.iml" />
       <module fileurl="file://$PROJECT_DIR$/butterknife-annotation/butterknife-annotation.iml" filepath="$PROJECT_DIR$/butterknife-annotation/butterknife-annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/butterknife-annotation/butterknife-annotation.iml" filepath="$PROJECT_DIR$/butterknife-annotation/butterknife-annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/butterknife-compiler/butterknife-compiler.iml" filepath="$PROJECT_DIR$/butterknife-compiler/butterknife-compiler.iml" />
       <module fileurl="file://$PROJECT_DIR$/butterknife-compiler/butterknife-compiler.iml" filepath="$PROJECT_DIR$/butterknife-compiler/butterknife-compiler.iml" />
     </modules>
   </component>
