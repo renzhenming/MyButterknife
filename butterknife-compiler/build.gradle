@@ -1,0 +1,13 @@
+apply plugin: 'java'
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //AutoService注解使用
+    compile 'com.google.auto.service:auto-service:1.0-rc3'
+    //自动生成类相关
+    compile 'com.squareup:javapoet:1.7.0'
+    compile project(':butterknife-annotation')
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
