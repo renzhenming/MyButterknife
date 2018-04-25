@@ -6,11 +6,13 @@ import android.widget.TextView;
 
 import com.example.BindView;
 
+
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.text1)
     TextView world;
-
+    @BindView(R.id.text2)
+    TextView bitch;
 
 
     @Override
