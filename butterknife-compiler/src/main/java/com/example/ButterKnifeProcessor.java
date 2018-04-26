@@ -23,6 +23,7 @@ import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
+
 import javax.lang.model.util.Elements;
 
 /**
@@ -133,7 +134,7 @@ public class ButterKnifeProcessor extends AbstractProcessor {
             //实现Unbinder的方法
             //CallSuper这个注解不像Override可以直接拿到，需要用这种方式
             ClassName callSuperClass = ClassName.get("android.support.annotation","CallSuper");
-            MethodSpec.Builder unbindMethod = MethodSpec.methodBuilder("unbind")//和你创建的Unbinder中的方法名保持一致
+            MethodSpec.Builder unbindMethodBuilder = MethodSpec.methodBuilder("unbind")//和你创建的Unbinder中的方法名保持一致
                     .addAnnotation(Override.class)
                     .addAnnotation(callSuperClass)
                     .addModifiers(Modifier.FINAL, Modifier.PUBLIC);
@@ -148,17 +149,20 @@ public class ButterKnifeProcessor extends AbstractProcessor {
                 //在构造方法中添加初始化代码
                 ClassName utilsClassName = ClassName.get("com.rzm.butterknife", "Utils");
                 BindView annotation = bindViewElement.getAnnotation(BindView.class);
-                int resId = annotation.value();
-                constructMethodBuilder.addStatement("target.$L = $T.findViewById(target,$L)",fieldName,utilsClassName,resId);
+                if (annotation != null){
+                    int resId = annotation.value();
+                    constructMethodBuilder.addStatement("target.$L = $T.findViewById(target,$L)",fieldName,utilsClassName,resId);
 
-                //在unbind方法中添加代码 target.textView1 = null;
-                //不能用addCode,因为它不会在每一行代码后加分号和换行
-                unbindMethod.addStatement("target.$L = null",fieldName);
+                    //在unbind方法中添加代码 target.textView1 = null;
+                    //不能用addCode,因为它不会在每一行代码后加分号和换行
+                    unbindMethodBuilder.addStatement("target.$L = null",fieldName);
+                }
+
             }
             classBuilder.addMethod(constructMethodBuilder.build());
 
 
-            classBuilder.addMethod(unbindMethod.build());
+            classBuilder.addMethod(unbindMethodBuilder.build());
 
             //开始生成
             try {

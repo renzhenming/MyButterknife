@@ -14,9 +14,9 @@ public class ButterKnife {
         try {
             Class<? extends Unbinder> clazz = (Class<? extends Unbinder>) Class.forName(activity.getClass().getName() + "_ViewBinding");
             //构造函数
-
-            Constructor<? extends Unbinder> unbinderConstuctor = clazz.getDeclaredConstructor(activity.getClass());
-            Unbinder unbinder = unbinderConstuctor.newInstance(activity);
+            Constructor<? extends Unbinder> constuctor = clazz.getDeclaredConstructor(activity.getClass());
+            constuctor.setAccessible(true);
+            Unbinder unbinder = constuctor.newInstance(activity);
             return unbinder;
         } catch (Exception e) {
             e.printStackTrace();
